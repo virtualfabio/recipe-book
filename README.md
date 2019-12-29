@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 
+## Gerando os compoentes do Projeto
+
+Run `ng generate component header`
+Run `ng generate component recipes`
+Run `ng generate component recipes/recipe-list`
+Run `ng generate component recipes/recipe-list/recipe-item`
+Run `ng generate component recipes/recipe-detail`
+Run `ng generate component shopping-list`
+Run `ng generate component shopping-list/shopping-edit`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
