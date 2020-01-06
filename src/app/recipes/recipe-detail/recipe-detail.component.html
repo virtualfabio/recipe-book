@@ -10,12 +10,12 @@
 </div>
 <div class="row">
     <div class="col">
-        <div class="btn-group">
-            <button type="button"class="btn btn-primary dropdown-toggle">Manage Recipe</button>
-            <ul class="dropdown-menu">
-                <li><a href="#">To Shopping List</a></li>
-                <li><a href="#">Add Recipe</a></li>
-                <li><a href="#">Delete Recipe</a></li>
+        <div class="btn-group dropdown-open" appDropdown #r="appDropdown">
+            <button type="button"class="btn btn-primary dropdown-toggle" >Manage Recipe</button>
+            <ul class="dropdown-menu"  [ngClass]="{'show':r.isOpen}" >
+                <li class="dropdown-item"><a href="#">To Shopping List</a></li>
+                <li class="dropdown-item"><a href="#">Add Recipe</a></li>
+                <li class="dropdown-item"><a href="#">Delete Recipe</a></li>
             </ul>
         </div>
     </div>

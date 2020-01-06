@@ -15,15 +15,15 @@
         </div>
     </div>
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav navbar-right">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Manage
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Save Data</a>
-                  <a class="dropdown-item" href="#">Fetch Data</a>
-                </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown show" appDropdown #r="appDropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Manage
+                </button>
+                <ul class="dropdown-menu" [ngClass]="{'show':r.isOpen}" >
+                  <li><a class="dropdown-item" href="#">Save Data</a></li>
+                  <li><a class="dropdown-item" href="#">Fetch Data</a></li>
+                </ul>
               </li>
         </ul>
     </div>
