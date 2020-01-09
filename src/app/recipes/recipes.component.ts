@@ -11,8 +11,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
-  id: string;
-  name: string;
+  id: string = '';
+  name: string = '';
 
   constructor(private recipeService: RecipeService, private router: ActivatedRoute) { }
 
