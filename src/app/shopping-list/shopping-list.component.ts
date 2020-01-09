@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -30,20 +31,20 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ]
 })
 export class ShoppingListComponent implements OnInit {
-  ingredients: Ingredient[] = [
-    new Ingredient('Chocolate em pó', 2),
-    new Ingredient('Farinha de trigo', 1),
-    new Ingredient('Manteiga', 1),
-    new Ingredient('Açucar', 3)
-  ];
+  ingredients: Ingredient[] = [];
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {
+    this.ingredients = this.shoppingListService.getIngredients();
+    this.shoppingListService.ingredientsChanged
+    .subscribe((ingredients: Ingredient[]) => {
+      this.ingredients = ingredients;
+    });
   }
 
   onIngredientAdded(ingredient: Ingredient){
-    console.log('...')
-    this.ingredients.push(ingredient)
+    //this.ingredients.push(ingredient)
+    this.shoppingListService.addIngredient(ingredient);
   }
 }

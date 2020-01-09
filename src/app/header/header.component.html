@@ -1,15 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Recipe Book</a>
+            <a class="navbar-brand" routerLink="/" >Recipe Book</a>
         </div>
         <div class="collapse navbar-collapse" >
         <ul class="navbar-nav">
-            <li class="nav-item active">
-            <a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes</a>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/recipes"  routerLinkActive="active" (click)="onSelect('recipe')">Recipes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shopping List</a>
+                <a class="nav-link" routerLink="/shoppinglist"  routerLinkActive="active" (click)="onSelect('shopping-list')">Shopping List</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-primary" (click)="goTo('1')">botão1</button>
+                <button class="btn btn-primary" (click)="goTo('2')">botão2</button>
+                <a class="nav-link" [routerLink]="['/recipes', 3, 'testeaaa']"  routerLinkActive="active">botão3</a>
             </li>
         </ul>
         </div>

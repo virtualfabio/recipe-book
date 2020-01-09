@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,19 +8,11 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() recepiWasSelected = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe('Petit Gateau', 'Bolinho com recheio de Chocolate, acompanhado de sorvete', 'https://www.mrbey.com.br/wp-content/uploads/2018/04/petit-gateau-de_imagem_20170517200235.jpg'),
-    new Recipe('Pão com linguiça', 'O famoso pão com liguiça e temperos a moda do chef', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRNIR9DYJBTY59raOM28l5RBcC63sbhpOJ49cy4rcdozEgvc1iT')
-  ];
-
-  constructor() { }
+  recipes: Recipe[];
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-  }
-
-  onRecepiSelected(recepi: Recipe){
-    this.recepiWasSelected.emit(recepi);
+    this.recipes = this.recipeService.getRecipes();
   }
 
 }
