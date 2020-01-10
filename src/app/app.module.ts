@@ -15,12 +15,15 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:id/:name', component: RecipesComponent },
-  { path: 'shoppinglist', component: ShoppingListComponent }
+  { path: 'shoppinglist', component: ShoppingListComponent },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/not-found'}
 ]
 
 @NgModule({
@@ -34,7 +37,8 @@ const appRoutes: Routes = [
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule, FormsModule, BrowserAnimationsModule, RouterModule.forRoot(appRoutes)

@@ -14,7 +14,9 @@
             <li class="nav-item">
                 <button class="btn btn-primary" (click)="goTo('1')">botão1</button>
                 <button class="btn btn-primary" (click)="goTo('2')">botão2</button>
-                <a class="nav-link" [routerLink]="['/recipes', 3, 'testeaaa']"  routerLinkActive="active">botão3</a>
+                <a class="nav-link" [routerLink]="['/recipes', 3, 'testeaaa']" routerLinkActive="active">botão3</a>
+                <a class="nav-link" [routerLink]="['/recipes', 4, 'teste1']" [queryParams]="{meu: 'APP', search: 'queijo'}" >botão4</a>
+                <a class="nav-link" (click)="gotToTeste(5)" >botão teste</a>
             </li>
         </ul>
         </div>

@@ -23,4 +23,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/recipes', id, 'fabio']);
   }
 
+  gotToTeste(id: number){
+    this.router.navigate(['/recipes', id, 'xxxxx'], {queryParams: {teste4: 'aaaa'}});
+  }
+
 }
