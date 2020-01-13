@@ -16,15 +16,11 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'recipes', component: RecipesComponent },
-  { path: 'recipes/:id/:name', component: RecipesComponent },
-  { path: 'shoppinglist', component: ShoppingListComponent },
-  { path: 'not-found', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '/not-found'}
-]
+import { AppRoutingModule } from './app-routing-module';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +34,14 @@ const appRoutes: Routes = [
     ShoppingEditComponent,
     DropdownDirective,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
-    BrowserModule, FormsModule, BrowserAnimationsModule, RouterModule.forRoot(appRoutes)
+    BrowserModule, FormsModule, BrowserAnimationsModule, AppRoutingModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

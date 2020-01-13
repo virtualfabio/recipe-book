@@ -36,13 +36,13 @@ import {
 export class AppComponent {
   state = 'normal';
   title = 'recipe-book';
-  loadedFeature = 'recipe';
+  //loadedFeature = 'recipe';
 
   onNavigate(feature: string){
     
     this.onAnimation();
 
-    this.loadedFeature = feature;
+    //this.loadedFeature = feature;
   }
 
   onAnimation(){

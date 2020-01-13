@@ -7,18 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() featureSelected = new EventEmitter<string>();
+  //@Output() featureSelected = new EventEmitter<string>();
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
+/*
   onSelect(feature: string){
     console.log(feature)
     this.featureSelected.emit(feature);
   }
-
+*/
   goTo(id: string){
     this.router.navigate(['/recipes', id, 'fabio']);
   }
