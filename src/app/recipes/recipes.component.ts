@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Recipe } from './recipe.model';
 import { RecipeService } from './recipe.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
@@ -7,8 +6,7 @@ import { interval, Subscription } from 'rxjs';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css'],
-  providers: [RecipeService]
+  styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit, OnDestroy {
   //selectedRecipe: Recipe;
@@ -31,13 +29,6 @@ export class RecipesComponent implements OnInit, OnDestroy {
       this.selectedRecipe = recipe;
     }); */
 
-    this.recipeService.activatedTeste.subscribe( activated =>{
-      console.log('ativo:  ' + activated);
-    });
-
-    this.recipeService.activatedTeste.next(true);
-    this.recipeService.activatedTeste.next(false);
-    this.recipeService.activatedTeste.unsubscribe();
 
     this.firstObsSubscription = interval(600).subscribe(count =>{
       if(count>=5){
