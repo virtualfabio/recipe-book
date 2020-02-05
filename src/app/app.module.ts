@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
@@ -22,6 +24,7 @@ import { AuthGuard } from './auth-guard.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +38,14 @@ import { RecipeService } from './recipes/recipe.service';
     ShoppingEditComponent,
     DropdownDirective,
     HomeComponent,
+    AuthComponent,
     PageNotFoundComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AppRoutingModule
+    BrowserModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule
   ],
   providers: [ShoppingListService, RecipeService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

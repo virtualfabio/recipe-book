@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +10,25 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   //@Output() featureSelected = new EventEmitter<string>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
   }
-/*
-  onSelect(feature: string){
-    console.log(feature)
-    this.featureSelected.emit(feature);
-  }
-*/
+
   goTo(id: string){
     this.router.navigate(['/recipes', id, 'fabio']);
   }
 
   gotToTeste(id: number){
     this.router.navigate(['/recipes', id, 'xxxxx'], {queryParams: {teste4: 'aaaa'}});
+  }
+
+  onSaveData(){
+    this.dataStorageService.storeRecipes();
+  }
+
+  onFetchRecipes(){
+    this.dataStorageService.fetchRecipes();
   }
 
 }
