@@ -19,12 +19,13 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing-module';
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AuthComponent } from './auth/auth.component';
     PageNotFoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule
