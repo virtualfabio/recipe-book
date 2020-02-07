@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate{
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
         //throw new Error("Method not implemented.");
         console.log('AuthGuard...');
-        return;
+        return true;
         /*
         return this.authService.isAuthenticated()
         .then((authenticated: boolean) =>{
