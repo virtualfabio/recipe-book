@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,6 +6,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -33,10 +34,19 @@ import {
     ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   state = 'normal';
   title = 'recipe-book';
   //loadedFeature = 'recipe';
+
+  constructor(private authService: AuthService){
+
+  }
+
+  ngOnInit(){
+    this.authService.autoLogin();
+  }  
+
 
   onNavigate(feature: string){
     

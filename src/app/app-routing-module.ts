@@ -18,7 +18,8 @@ const appRoutes: Routes = [
         { path: ':id', component: RecipeDetailComponent },
         { path: ':id/edit', component: RecipeEditComponent }
     ]},
-    { path: 'shopping-list', canActivate: [AuthGuard], component: ShoppingListComponent },
+  //  { path: 'shopping-list', canActivate: [AuthGuard], component: ShoppingListComponent },
+  { path: 'shopping-list', component: ShoppingListComponent },
     { path: 'auth', component: AuthComponent },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '**', redirectTo: '/not-found'}

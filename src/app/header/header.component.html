@@ -26,7 +26,7 @@
                 <a class="nav-link" [routerLink]="['/recipes', 1, 'teste1']" [queryParams]="{meu: 'APP', search: 'queijo'}" >Don´t Touch</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"style="cursor: pointer;" routerLinkActive="active"  *ngIf="isAuthenticated" >Logout</a>
+                <a class="nav-link"style="cursor: pointer;" routerLinkActive="active" (click)="onLogout()" *ngIf="isAuthenticated" >Logout</a>
             </li>
         </ul>
         </div>
