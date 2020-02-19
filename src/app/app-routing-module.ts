@@ -12,6 +12,7 @@ import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent},
+    //{ path: 'recipes', loadChildren: './recipes/recipes.component.ts#RecipesComponet' },
     { path: 'recipes', component: RecipesComponent,  canActivate: [AuthGuard], 
         children: [
         { path: '', component: RecipeStartComponent },

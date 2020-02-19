@@ -13,7 +13,7 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { DropdownDirective } from './shared/dropdown.directive';
+//import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -22,9 +22,10 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthComponent } from './auth/auth.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+//import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { AlertComponent } from './shared/alert/alert.component';
+//import { AlertComponent } from './shared/alert/alert.component';
+import { SharedModule } from './shared/shared.model';
 
 @NgModule({
   declarations: [
@@ -36,18 +37,19 @@ import { AlertComponent } from './shared/alert/alert.component';
     RecipeDetailComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective,
+    //DropdownDirective,
     HomeComponent,
     AuthComponent,
     PageNotFoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingSpinnerComponent,
-    AlertComponent
+    //LoadingSpinnerComponent,
+    //AlertComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule
+    BrowserModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule,
+    SharedModule
   ],
   providers: [ShoppingListService, RecipeService, {
     provide: HTTP_INTERCEPTORS,
