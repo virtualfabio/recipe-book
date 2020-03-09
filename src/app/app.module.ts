@@ -21,14 +21,17 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthComponent } from './auth/auth.component';
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 //import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-//import { AlertComponent } from './shared/alert/alert.component';
 import { SharedModule } from './shared/shared.model';
 import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 import * as fromApp from './store/app.reducer';
+import { AuthEffects } from './auth/store/auth.effects';
+import { environment } from '../environments/environment';
+import { RecipeEffects } from './recipes/store/recipe.effects';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,8 @@ import * as fromApp from './store/app.reducer';
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule,
-    StoreModule.forRoot( fromApp.appReducer ), SharedModule
+    StoreModule.forRoot( fromApp.appReducer ), EffectsModule.forRoot([AuthEffects, RecipeEffects]), 
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }), SharedModule
   ],
   providers: [RecipeService, {
     provide: HTTP_INTERCEPTORS,
